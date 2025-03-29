@@ -33,17 +33,16 @@ public class Main {
                     getTasks(planner);
                     break;
                 case 3:
-                    try {
-                        System.out.print("Введите номер для удаления: ");
-                        input = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Введите номер для удаления: ");
+                    input = Integer.parseInt(scanner.nextLine()) - 1;
+                    if (input < 0 || input > planner.size()) {
+                        System.out.println("Задача с указанным номером, отсутствует в списке");
+                    } else {
                         planner.remove(input);
                         System.out.print("Удалено!");
-                    } catch (IndexOutOfBoundsException e) {
-                        System.out.println("Задача с указанным номером, отсутствует в списке");
-                    } finally {
                         getTasks(planner);
-                        break;
                     }
+                    break;
                 case 4:
                     System.out.print("Введите задачу для удаления: ");
                     input2 = scanner.nextLine();
